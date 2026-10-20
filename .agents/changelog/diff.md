@@ -35,3 +35,16 @@ One block per agent turn, one row per changed file:
 ## Change log
 
 <!-- AI agent entries will be inserted below this line -->
+
+---
+### Turn 2026-10-19 21:42:19 -0300 · Cursor
+- **Source**: command
+- **Session**: n/a
+- **Prompt**: n/a
+- **Summary**: Moved Postgres credentials to env files and parameterized docker-compose
+
+| File | Change | Additions | Removals |
+|---|---|---|---|
+| `.env.example` | created | +7 | -0 |
+| `backend/.env.example` | created | +4 | -0 |
+| `docker-compose.yml` | modified | +6 | -6 |

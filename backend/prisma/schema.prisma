@@ -11,3 +11,25 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum UserRole {
+  SOLICITANTE
+  APROVADOR
+  ADMIN
+}
+
+enum ApproverLevel {
+  FIRST_LEVEL
+  SECOND_LEVEL
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  passwordHash  String
+  isActive  Boolean  @default(true)
+  role      UserRole
+  approverLevel ApproverLevel?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
