@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module.js';
 
@@ -22,6 +22,7 @@ async function bootstrap() {
   const logger = new Logger('Bootstrap');
   logger.log(`App: http://localhost:${port}`);
   logger.log(`Swagger: http://localhost:${port}/${swaggerPath}`);
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 }
 
 await bootstrap();

@@ -24,12 +24,13 @@ enum ApproverLevel {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
   passwordHash  String
-  isActive  Boolean  @default(true)
-  role      UserRole
+  isActive      Boolean        @default(true)
+  role          UserRole
   approverLevel ApproverLevel?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
 }

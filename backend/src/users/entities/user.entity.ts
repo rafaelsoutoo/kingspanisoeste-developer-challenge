@@ -1,21 +1,15 @@
-export enum UserRole {
-  SOLICITANTE = 'SOLICITANTE',
-  APROVADOR = 'APROVADOR',
-  ADMIN = 'ADMIN',
-}
-
-export enum ApproverLevel {
-  FIRST_LEVEL = 'FIRST_LEVEL',
-  SECOND_LEVEL = 'SECOND_LEVEL',
-}
+import type { ApproverLevel, UserRole } from '@/generated/prisma/enums.js';
 
 export interface UserEntity {
   id: string;
   name: string;
   email: string;
+  passwordHash: string;
   role: UserRole;
-  approverLevel: ApproverLevel;
+  approverLevel: ApproverLevel | null;
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type PublicUser = Omit<UserEntity, 'passwordHash'>;
