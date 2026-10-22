@@ -1,4 +1,4 @@
-import { Inject } from "@nestjs/common"
+import { Inject, Injectable } from "@nestjs/common"
 import { UsersRepository } from "../repositories/users.repository.js"
 import { CreateUserDTO } from "../dtos/create-user.dto.js"
 
@@ -6,6 +6,7 @@ interface CreateUserUseCaseRequest {
     data: CreateUserDTO
 }
 
+@Injectable()
 export class CreateUserUseCase {
     constructor(
         @Inject(UsersRepository)
